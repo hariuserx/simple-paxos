@@ -118,13 +118,13 @@ no value v' != v can be chosen in any previous round.
 This statement is much strict and directly implies Requirement 3.
 For round i = 0, it is trivial as there is no previous round. Lets say that the
 statement holds till i-1 rounds. Now for round i, let v be accepted value by an acceptor from
-a set Q of acceptors with |Q| >= 2n + 1 (Quorum). Let j be the highest round already 
+a set Q of acceptors with |Q| >= n + 1 (Quorum). Let j be the highest round already 
 accepted from the promises in Q. if v is accepted value in i, then atleast one acceptor
 in Q in round j must have accepted value v. Now lets say that round j has consensus with
-value v'. This implies in round j, there are >= 2n + 1 acceptors with v' and other 
+value v'. This implies in round j, there are >= n + 1 acceptors with v' and other 
 acceptors in round j can have either a null value or v' as the proposals(rounds)
 are unique (Every proposer while proposing creates a unique round identifier) and a
-proposer only proposes one value in a round. Now, Q has >= 2n + 1 acceptors, so an
+proposer only proposes one value in a round. Now, Q has >= n + 1 acceptors, so an
 acceptor in Q accepting v must be an acceptor in round j with value v'. This proves v = v'.
 
 **Multi paxos**
