@@ -1,7 +1,6 @@
-import java.util.Arrays;
 import java.util.List;
 
-public class Promise implements Message{
+public class Promise implements Message {
 
     final int fromAcceptorId;
     final ProposalID receivedProposalId;

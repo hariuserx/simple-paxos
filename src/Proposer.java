@@ -4,12 +4,12 @@ import java.util.Set;
 
 public class Proposer {
 
-    ProposalID currentProposalId;
-    // Highest proposal id observed in the entire distributed system
-    ProposalID highestProposalId;
     final int processUniqueId;
     final int quorum;
     final List<Integer> acceptors;
+    ProposalID currentProposalId;
+    // Highest proposal id observed in the entire distributed system
+    ProposalID highestProposalId;
     Set<Integer> negativeAckedAcceptors;
     Set<Integer> promisedProposalAcceptors;
     int proposalValue;
@@ -39,6 +39,7 @@ public class Proposer {
 
         return new Prepare(currentProposalId, acceptors);
     }
+
     public Accept receivePromise(Promise message) {
 
         // ignore old proposals

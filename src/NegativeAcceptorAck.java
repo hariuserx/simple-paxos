@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class NegativeAcceptorAck implements Message{
+public class NegativeAcceptorAck implements Message {
 
     final int fromAcceptorId;
     final ProposalID receivedProposalId;

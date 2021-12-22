@@ -1,20 +1,22 @@
 // TODO: We can also have a distinguished learner
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * As only one proposer is associated with a round. We don't need any
  * Synchronous behaviour.
- *
  */
 public class Learner {
 
-    int chosenValue = Integer.MIN_VALUE;
     final int clientAddress;
     final int learnerAddress;
+    final int quorum;
+    int chosenValue = Integer.MIN_VALUE;
     ProposalID choseProposalID;
     Map<Integer, ProposalID> acceptedProposals; // acceptor id -> accepted proposal
-    final int quorum;
     Map<ProposalID, Set<Integer>> proposalAcceptors; // proposal id -> set to acceptors
 
     Learner(int clientAddress, int learnerAddress, int quorum) {

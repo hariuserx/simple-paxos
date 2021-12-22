@@ -2,12 +2,12 @@ import java.util.List;
 
 public class Acceptor {
 
+    final int processUniqueId;
+    final List<Integer> learnerAddresses;
     ProposalID highestAcceptedProposal;
     ProposalID highestPromisedProposal;
-    final int processUniqueId;
     // min value denotes no accepted value
     int acceptedProposalValue = Integer.MIN_VALUE;
-    final List<Integer> learnerAddresses;
 
     Acceptor(int processUniqueId, List<Integer> learnerAddresses) {
         this.processUniqueId = processUniqueId;
