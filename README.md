@@ -45,7 +45,7 @@ if there is at-least one unhealthy node.<br>_Using timeouts/heartbeats, we can d
 Byzantine fault tolerant systems are the most robust but require exponential number of message transmissions for 
 consensus and more replications than other consensus protocols.
 
-### Quorum
+#### Quorum
 A quorum is the minimum number of votes that a distributed transaction has to obtain in order to be allowed to perform 
 an operation in a distributed system. A quorum-based technique is implemented to enforce consistent operation in a 
 distributed system.

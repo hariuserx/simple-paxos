@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Accept implements Message{
+public class Accept implements Message {
 
     final ProposalID proposalID;
     final int proposedValue;

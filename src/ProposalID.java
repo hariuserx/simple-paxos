@@ -1,3 +1,4 @@
+import java.util.Objects;
 
 /**
  * All proposal identifiers must be unique.
@@ -18,5 +19,18 @@ public class ProposalID implements Comparable<ProposalID>{
     public int compareTo(ProposalID o) {
         int val = Integer.compare(this.sequence, o.sequence);
         return val == 0 ? Integer.compare(this.processUniqueId, o.processUniqueId) : val;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ProposalID that = (ProposalID) o;
+        return processUniqueId == that.processUniqueId && sequence == that.sequence;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(processUniqueId, sequence);
     }
 }

@@ -1,13 +1,22 @@
-public class Prepare implements Message{
+import java.util.List;
+
+public class Prepare implements Message {
 
     final ProposalID proposalID;
+    final List<Integer> acceptorAddresses;
 
-    Prepare(ProposalID proposalID) {
+    Prepare(ProposalID proposalID, List<Integer> acceptorAddresses) {
         this.proposalID = proposalID;
+        this.acceptorAddresses = acceptorAddresses;
     }
 
     @Override
     public int getFromAddress() {
-        return 0;
+        return proposalID.processUniqueId;
+    }
+
+    @Override
+    public List<Integer> getToAddress() {
+        return acceptorAddresses;
     }
 }
