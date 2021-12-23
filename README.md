@@ -94,7 +94,7 @@ To satisfy the above requirements, the following algorithm for proposals can be 
    responded to even if it has restarted/up after any crash.
 10. A proposer can abandon a proposal and ignore any further incoming responses. One optimization could be to drop a 
     proposal if an acceptor responded to a higher prepare request given that it gives the proposer this information.
-11. Proper remembers just the highest proposal it has issued.
+11. Proposer remembers just the highest proposal it has issued.
 
 **Learning a chosen value**
 Learner can learn a chosen value in the following ways:
@@ -111,11 +111,11 @@ using the highest id. **
 
 **Paxos proof for requirements satisfaction**<br>
 Requirements 1, 2 and 3 are trivial by seeing how the algorithm works.
-For requirement 3 (multiple proposals can be chosen but they must have the same value) 
+For requirement 4 (multiple proposals can be chosen but they must have the same value) 
 lets use induction.
 To prove requirement 3, lets try to prove that if an acceptor accepted value v, then
 no value v' != v can be chosen in any previous round.
-This statement is much strict and directly implies Requirement 3.
+This statement is much strict and directly implies Requirement 4.
 For round i = 0, it is trivial as there is no previous round. Lets say that the
 statement holds till i-1 rounds. Now for round i, let v be accepted value by an acceptor from
 a set Q of acceptors with |Q| >= n + 1 (Quorum). Let j be the highest round already 
@@ -194,5 +194,5 @@ Coming soon!!
 ## Playing and testing
 Modify and run the unit test `testRunPaxos` in `SimplePaxosTest`. The current
 transport layers is completely asynchronous and there are no synchronous blocks of code.
-The algorithm terminates and there is a main safety check for Paxos requirement 3
+The algorithm terminates and there is a main safety check for Paxos requirement 4
 which terminates the program if violated.
