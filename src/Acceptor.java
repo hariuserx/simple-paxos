@@ -16,12 +16,12 @@ public class Acceptor {
 
     // TODO: Test for Asynchronous behaviour
     public Message receivePrepare(Prepare message) {
-        if (highestPromisedProposal == null || message.proposalID.compareTo(highestPromisedProposal) >= 0) {
+        if (highestPromisedProposal == null || message.proposalID.compareTo(highestPromisedProposal) > 0) {
             highestPromisedProposal = message.proposalID;
             return new Promise(processUniqueId, message.proposalID, highestAcceptedProposal, acceptedProposalValue);
         } else {
-            // Send this to tell proposer to stop listening to promises. An acceptor can also simply ignore the prepare
-            // without responding.
+            // Send this to tell proposer to stop listening to promises. An acceptor can also simply ignore the
+            // prepare without responding.
             return new NegativeAcceptorAck(processUniqueId, message.proposalID, highestPromisedProposal);
         }
     }

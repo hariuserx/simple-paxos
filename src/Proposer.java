@@ -43,8 +43,13 @@ public class Proposer {
     public Accept receivePromise(Promise message) {
 
         // ignore old proposals
-        if (message.receivedProposalId != currentProposalId)
+        if (message.receivedProposalId.compareTo(currentProposalId) < 0)
             return null;
+
+        if (message.receivedProposalId.compareTo(currentProposalId) > 0) {
+            System.err.println("Invalid received proposal");
+            return null;
+        }
 
         if (promisedProposalAcceptors.contains(message.fromAcceptorId))
             return null;
@@ -52,6 +57,8 @@ public class Proposer {
         promisedProposalAcceptors.add(message.fromAcceptorId);
         if (message.acceptedProposalId != null && message.acceptedProposalId.compareTo(highestProposalId) > 0) {
             highestProposalId = message.acceptedProposalId;
+            proposalValue = message.acceptedProposalValue;
+        } else if (message.acceptedProposalId != null) {
             proposalValue = message.acceptedProposalValue;
         }
 

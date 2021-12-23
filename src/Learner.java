@@ -33,8 +33,9 @@ public class Learner {
 
         if (chosenValue != Integer.MIN_VALUE) {
             // This shouldn't happen in Paxos
-            if (chosenValue != accepted.acceptedValue) {
-                System.err.println("Fatal -- This is not a correct Paxos");
+            if (chosenValue != accepted.acceptedValue && proposalID.compareTo(choseProposalID) > 0) {
+                System.err.println("Fatal -- This is not a correct Paxos, already chosen " + chosenValue +
+                        " but acceptor accepted " + accepted.acceptedValue);
                 System.exit(100);
             }
 
@@ -51,7 +52,7 @@ public class Learner {
                     return null;
                 }
             }
-            acceptedProposals.put(accepted.acceptedValue, proposalID);
+            acceptedProposals.put(accepted.acceptorId, proposalID);
             if (proposalAcceptors.containsKey(proposalID)) {
                 proposalAcceptors.get(proposalID).add(accepted.getFromAddress());
             } else {

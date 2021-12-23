@@ -189,3 +189,10 @@ Google BigTable, Spanner, ZooKeeper
 
 
 ## Code explanation
+Coming soon!!
+
+## Playing and testing
+Modify and run the unit test `testRunPaxos` in `SimplePaxosTest`. The current
+transport layers is completely asynchronous and there are no synchronous blocks of code.
+The algorithm terminates and there is a main safety check for Paxos requirement 3
+which terminates the program if violated.

@@ -39,6 +39,7 @@ public class SimplePaxos {
 
         for (Proposer p : proposers) {
             Prepare prepareMsg = p.sendPrepare();
+            System.out.println("Proposer " + p.processUniqueId + " is initially proposing " + p.proposalValue);
             tp.sendMessage(prepareMsg, this);
         }
     }
