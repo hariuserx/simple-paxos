@@ -196,3 +196,62 @@ Modify and run the unit test `testRunPaxos` in `SimplePaxosTest`. The current
 transport layers is completely asynchronous and there are no synchronous blocks of code.
 The algorithm terminates and there is a main safety check for Paxos requirement 4
 which terminates the program if violated.
+
+Sample output:
+```text
+Proposer 2 is initially proposing 100
+Proposer 3 is initially proposing 400
+Proposer 4 is initially proposing 700
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+Value Learned!!!! 100
+
+Process finished with exit code 0
+
+```
